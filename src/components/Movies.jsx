@@ -2,9 +2,12 @@ import React from 'react'
 
 function Movies() {
   return (
-    <div>
-        <h1>Movies Component</h1>
+    <div className='p-3'>
+        <div className='text-center text-2xl font-bold'>
+            Trending Movies
         </div>
+
+    </div>
   )
 }
 
