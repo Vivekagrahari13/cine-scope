@@ -1,16 +1,65 @@
-# React + Vite
+# CineScope
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A movie browsing app built with React as part of a two-week React bootcamp. Browse popular movies from TMDB, build a watchlist, and search, sort and filter it.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Trending movies** with posters, fetched from the TMDB API
+- **Pagination** to move between pages of results
+- **Watchlist**: add a movie with the 😍 icon on its card, remove it with ❌
+- **Persistent watchlist**: saved in `localStorage`, so it survives a page refresh
+- **Watchlist table** with poster, rating, popularity and genre
+- **Search** the watchlist by movie name
+- **Sort** the watchlist by rating, ascending or descending
+- **Genre filter** built from the genres in your watchlist
+- **Delete** a movie directly from the watchlist table
+- **Routing** between Movies and Watchlist pages
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React](https://react.dev) 19 with [Vite](https://vite.dev)
+- [Tailwind CSS](https://tailwindcss.com) 4
+- [React Router](https://reactrouter.com)
+- [Axios](https://axios-http.com) for API calls
+- [TMDB API](https://developer.themoviedb.org) for movie data
+- Font Awesome for icons
 
-## Expanding the ESLint configuration
+## Concepts Practised
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `useState` and `useEffect`, including the dependency array and avoiding infinite re-renders
+- Lifting state up and passing state and handlers as props
+- Controlled inputs for search
+- Array methods (`filter`, `map`, `sort`) for search, sort and genre filter
+- Persisting state with `localStorage`
+- Deriving values during render instead of storing them in state
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+The app runs at `http://localhost:5173`.
+
+## Project Structure
+
+```
+src/
+  components/
+    Banner.jsx       # hero banner on the home page
+    Navbar.jsx       # navigation links
+    Movies.jsx       # fetches and lists movies, handles pagination state
+    MovieCard.jsx    # single movie card with add/remove icon
+    Pagination.jsx   # previous / next controls
+    WatchList.jsx    # watchlist table with search, sort and genre filter
+  utils/
+    genres.js        # TMDB genre id -> name lookup
+  App.jsx            # routes and watchlist state
+```
+
+## Roadmap
+
+- Move the TMDB API key to an `.env` file
+- Share watchlist state with the Context API
+- Deploy the app
